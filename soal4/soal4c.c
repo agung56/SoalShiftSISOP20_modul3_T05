@@ -27,15 +27,15 @@ int main() {
     close(fd[0]);
     close(fd[1]);
 
-    char *argv[]={"ls", NULL};
-    execv("/bin/ls", argv);
+    char *jalan[]={"ls", NULL};
+    execv("/bin/ls", jalan);
   }
   else{
     dup2(fd[0],0);
     close(fd[0]);
     close(fd[1]);
-    char *argv[] = {"wc", "-l", NULL};
-    execv("/usr/bin/wc", argv);
+    char *jalan[] = {"wc", "-l", NULL};
+    execv("/usr/bin/wc", jalan);
   }
 
   return 0;
