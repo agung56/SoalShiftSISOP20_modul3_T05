@@ -3,50 +3,51 @@
 
 > ## #Script untuk 4 C
 >
-**#include <stdio.h>
+```c
+
+#include <stdio.h>
 #include <sys/types.h>
 #include <string.h>
 #include <stdlib.h>
 #include <unistd.h>
-#include <sys/wait.h>**
+#include <sys/wait.h>
 
-**int main() {
-  int fd[2];**
+int main() {
+  int fd[2];
 
-**pid_t t;**
+  pid_t t;
 
-  **if (pipe(fd)==-1){
+  if (pipe(fd)==-1){
     fprintf(stderr, "Pipe failed");
     return 1;
-  }**
+  }
 
-  **t = fork();**
+  t = fork();
 
-  **if (t<0){
+  if (t<0){
     fprintf(stderr, "Fork failed");
     return 1;
-  }**
+  }
 
-  **if (t==0){
+  if (t==0){
     dup2(fd[1],1);
     close(fd[0]);
-    close(fd[1]);**
+    close(fd[1]);
 
     char *jalan[]={"ls", NULL};
     execv("/bin/ls", jalan);
- }
-  **else{
+  }
+  else{
     dup2(fd[0],0);
     close(fd[0]);
-    close(fd[1]);**
-
-    char** *jalan[] = {"wc", "-l", NULL};
+    close(fd[1]);
+    char *jalan[] = {"wc", "-l", NULL};
     execv("/usr/bin/wc", jalan);
   }
 
-  **return 0;
-}**
-
+  return 0;
+}
+```
 
 
 ## Penjelasan Script
