@@ -91,7 +91,7 @@ shmctl(shmid, IPC_RMID, NULL);
 Selanjutnya membuat thread sesuai baris yang ada pada matriks K dan join antara thread satu dengan thread yang lain, kemudian membuat **shmid** yang digunakan sebagai id matriks K agar dapat dilihat pada program lain. Dan yang terakhir adalah menampilkan hasil dari perkalian dua matriks tadi.
 
 ### Output
-[!thread](https://github.com/agung56/SoalShiftSISOP20_modul3_T05/blob/master/Screenshot/Screenshot4A.png)
+![thread](https://github.com/agung56/SoalShiftSISOP20_modul3_T05/blob/master/Screenshot/Screenshot4A.png)
 
 #### Penjelasan Script 4 B
 
