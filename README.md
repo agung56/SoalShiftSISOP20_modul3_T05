@@ -20,6 +20,78 @@ Kode Program: [soal4a.c](https://github.com/agung56/SoalShiftSISOP20_modul3_T05/
               [soal4b.c](https://github.com/agung56/SoalShiftSISOP20_modul3_T05/blob/master/soal4/soal4b.c)
               [soal4c.c](https://github.com/agung56/SoalShiftSISOP20_modul3_T05/blob/master/soal4/soal4c.c)
 #### Penjelasan Script 4 A
+```c
+#include<stdio.h>
+#include<sys/shm.h>
+#include<sys/ipc.h>
+#include<sys/wait.h>
+#include<sys/types.h>
+#include<unistd.h>
+#include<stdlib.h>
+#include<pthread.h>
+#include<string.h>
+```
+
+Script diatas merupakan semua library standar dalam bahasa pemrograman C yang digunakan dalam proses ini.
+
+```c
+int row=0;
+int I[4][2] = {{2, 5},
+               {3, 1},
+               {4, 5},
+               {2, 1},};
+int J[2][5] = {{2, 3, 4, 5, 1},
+               {4, 5, 1, 2, 3}};
+int K[4][5];
+
+```
+
+Script diatas adalah matriks yang nantinya akan dikalikan satu sama lain dan nantinya hasil dari perkalian matriks I dan matriks J disimpan dalam matriks K
+```c
+void* perkalianmatrix(void* arg){
+  int x=row++;
+
+  for(int y=0; y<5; y++){
+    for(int z=0; z<2; z++){
+      K[x][y] = K[x][y] + I[x][z] * J[z][y];
+    }
+  }
+ ```
+ Selanjutnya script diatas adalah proses dari perkalian antara matriks I dengan matriks J, dimana **row** digunakan untuk mengidentifikasi baris ke- dan selanjutnya proses perkalian dilakukan tiap kolom antara kolom matriks I dengan kolom matriks J setelah itu dijumlah dan hasilnya dimasukkan dalam matriks K.
+```c
+int main(){
+  int *matriks;
+  int i=4,j=5;
+
+  pthread_t tid[4];
+  for(int a=0; a<4; a++){
+    pthread_create(&tid[a], NULL, &perkalianmatrix, NULL);
+  }
+  for (int a=0; a<4; a++){
+    pthread_join(tid[a], NULL);
+  }
+
+key_t key = 1234;
+int shmid = shmget(key, sizeof(int)*i*j, IPC_CREAT | 0666);
+matriks = (int *)shmat(shmid, NULL, 0);
+
+printf("Hasil Perkalian Matrix: \n");
+for(int b=0; b<i; b++){
+  for(int c=0; c<j ; c++){
+    printf("%2d\t", K[b][c]);
+  }
+  printf("\n");
+}
+sleep(10);
+
+shmdt(matriks);
+shmctl(shmid, IPC_RMID, NULL);
+}
+```
+Selanjutnya membuat thread sesuai baris yang ada pada matriks K dan join antara thread satu dengan thread yang lain, kemudian membuat **shmid** yang digunakan sebagai id matriks K agar dapat dilihat pada program lain. Dan yang terakhir adalah menampilkan hasil dari perkalian dua matriks tadi.
+
+### Output
+[!thread](https://github.com/agung56/SoalShiftSISOP20_modul3_T05/blob/master/Screenshot/Screenshot4A.png)
 
 #### Penjelasan Script 4 B
 
