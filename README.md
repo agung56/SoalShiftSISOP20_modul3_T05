@@ -9,11 +9,32 @@
 ## Soal 1
 Kode Program: [soal1.c](https://github.com/agung56/SoalShiftSISOP20_modul3_T05/tree/master/soal1)
 
+Maaf kelompok kami tidak dapat menyelesaikan Soal tersebut.
+#### Kendala
+* Tidak mengerti bagaimana mengerjakan soal
+* Tidak tahu algoritma yang digunakan
+* Kurangnya referensi dari internet yang memungkinkan selesainya soal
+* Informasi yang terdapat pada modul terlalu terbatas
+
 ## Soal 2
 Kode Program: [soal2.c](https://github.com/agung56/SoalShiftSISOP20_modul3_T05/tree/master/soal2)
 
+Maaf kelompok kami tidak dapat menyelesaikan Soal tersebut.
+#### Kendala
+* Tidak mengerti bagaimana mengerjakan soal
+* Tidak tahu algoritma yang digunakan
+* Kurangnya referensi dari internet yang memungkinkan selesainya soal
+* Informasi yang terdapat pada modul terlalu terbatas
+
 ## Soal 3
 Kode Program: [soal3.c](https://github.com/agung56/SoalShiftSISOP20_modul3_T05/blob/master/soal3/soal3.c)
+
+Maaf kelompok kami tidak dapat menyelesaikan Soal tersebut.
+#### Kendala
+* Tidak mengerti bagaimana mengerjakan soal
+* Tidak tahu algoritma yang digunakan
+* Kurangnya referensi dari internet yang memungkinkan selesainya soal
+* Informasi yang terdapat pada modul terlalu terbatas
 
 ## Soal 4
 Kode Program: [soal4a.c](https://github.com/agung56/SoalShiftSISOP20_modul3_T05/blob/master/soal4/soal4a.c)
