@@ -1,10 +1,10 @@
 # SoalShiftSISOP20_modul3_T05
 #### Anggota Kelompok:
-1. I Gede Pradhana Indra Widnyana (05311840000031
+1. I Gede Pradhana Indra Widnyana (05311840000031)
 2. Agung Mulyono (05311840000035)
 
 
-### [ink Soal Shift](https://github.com/agung56/SoalShiftSISOP20_modul3_T05/blob/master/SoalShiftModul3.pdf)
+### [Link Soal Shift](https://github.com/agung56/SoalShiftSISOP20_modul3_T05/blob/master/SoalShiftModul3.pdf)
 
 ## Soal 1
 Kode Program: [soal1.c](https://github.com/agung56/SoalShiftSISOP20_modul3_T05/tree/master/soal1)
@@ -94,6 +94,68 @@ Selanjutnya membuat thread sesuai baris yang ada pada matriks K dan join antara 
 ![thread](https://github.com/agung56/SoalShiftSISOP20_modul3_T05/blob/master/Screenshot/Screenshot4A.png)
 
 #### Penjelasan Script 4 B
+```c
+#include<stdio.h>
+#include<sys/shm.h>
+#include<sys/ipc.h>
+#include<sys/wait.h>
+#include<sys/types.h>
+#include<unistd.h>
+#include<stdlib.h>
+#include<pthread.h>
+#include<string.h>
+```
+Script diatas merupakan semua library standar dalam bahasa pemrograman C yang digunakan dalam proses ini.
+```c
+int row=0;
+int K[4][5];
+void* factorialgantitambah(void* arg){
+  int i= *((int*)arg);
+  free(arg);
+
+  int total=0;
+  for(int a=i; a>0; a--){
+    total=total+j;
+  }
+
+  if(row > 4){
+    printf("\n");
+    row=0;
+  }
+  printf("%4d", total);
+  row++;
+
+}
+```
+Script diatas merupakan proses penjumlahan yang dilakukan tiap nilai yang ada pada matriks tersebut (contoh: 5+4+...+1) dan menyimpannya kedalam variabel **total**. Setelah penjumlahan selesai, dilakukan pengecekan pada jumlah baris, jika jumlah baris yang ada pada matriks tersebut lebih dari 4 (karena total baris pada matriks harusnya 4) maka baris tersebut merupakan spasi dan langsung ditampilkan pada terminal dan selanjutnya menampilkan nilai dari **total** tadi.
+
+```c
+int main(){
+  key_t key = 1234;
+  int shmid = shmget(key, sizeof(int)*i*j, IPC_CREAT | 0666);
+  matriks = (int *)shmat(shmid, NULL, 0);
+
+  printf("Hasil Perkalian Matrix: \n");
+  for(int b=0; b<i; b++){
+    for(int c=0; c<j ; c++){
+      printf("%2d\t", K[b][c]);
+    }
+    printf("\n");
+  }
+
+  printf("hasil setelah ditambah: \n");
+  pthread_t tid[20];
+
+
+
+  sleep(10);
+
+  shmdt(matriks);
+  shmctl(shmid, IPC_RMID, NULL);
+
+
+```
+Script diatas tidak jauh beda dengan script 4 A tadi karena proses yang digunakan sama yaitu menggunakan shared memory. Namun kelompok kami tidak dapat menyelesaikan soal tersebut dikarenakan kami mengalami kebingungan untuk menampilkan matriks yang ada pada 4 A dan menampilkan matriks yang baru, karena setelah kami mencobanya berulang-ulang tetap saja nilainya tidak muncul.
 
 
 #### Penjelasan Script 4 C
