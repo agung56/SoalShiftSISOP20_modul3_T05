@@ -111,4 +111,4 @@ Langkah terakhir dalam proses ini adalah dengan mengghitung jumlah hasil listing
 
 
 > ## #Screenshot program 4c
-(Screenshot/Screenshot4C.png)
+![thread](Screenshot/Screenshot4C.png)
