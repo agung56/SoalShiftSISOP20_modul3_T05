@@ -108,3 +108,7 @@ else{
 ```
 
 Langkah terakhir dalam proses ini adalah dengan mengghitung jumlah hasil listing tersebut dengan command **wc -l** command tersebut merupakan command untuk menghitung satu persatu file ataupun folder yang sudah ada di dalam suatu **line** hasil dari proses listing sebelumnya, sehingga akan didapat jumlah dari file ataupun folder yang ada dalam direktori tersebut.
+
+
+> ## #Screenshot program 4c
+(Screenshot/Screenshot4C.png)
